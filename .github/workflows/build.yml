@@ -13,21 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup MSVC C++ Compiler
-        uses: ilammy/msvc-dev-cmd@v1
-
-      - name: Setup Geode CLI
-        uses: geode-sdk/cli/.github/actions/setup@main
-
       - name: Clean Old Build Cache
         run: |
           if (Test-Path geode-mod/build) { Remove-Item -Recurse -Force geode-mod/build }
         shell: powershell
 
-      - name: Build Mod
-        run: |
-          cd geode-mod
-          geode build --platform win
+      - name: Build Geode Mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          path: geode-mod
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
