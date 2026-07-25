@@ -13,16 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build Geode Mod
-        uses: geode-sdk/build-geode-mod@main
-        with:
-          target: win
-          path: geode-mod
+      - name: Setup Geode SDK
+        uses: geode-sdk/cli@main
+
+      - name: Build Mod
+        run: |
+          cd geode-mod
+          geode build -p win
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ai-layout-generator-mod
-          path: |
-            geode-mod/*.geode
-            *.geode
+          path: geode-mod/*.geode
