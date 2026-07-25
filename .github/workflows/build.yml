@@ -19,6 +19,11 @@ jobs:
       - name: Setup Geode CLI
         uses: geode-sdk/cli/.github/actions/setup@main
 
+      - name: Clean Old Build Cache
+        run: |
+          if (Test-Path geode-mod/build) { Remove-Item -Recurse -Force geode-mod/build }
+        shell: powershell
+
       - name: Build Mod
         run: |
           cd geode-mod
