@@ -1,0 +1,13 @@
+{
+  "geode": ">=3.8.0",
+  "gd": {
+    "win": "2.208",
+    "mac": "2.208",
+    "android": "2.208"
+  },
+  "id": "com.harry.ailayoutgenerator",
+  "name": "AI Layout Generator",
+  "version": "v1.0.0",
+  "developer": "Harryzhaov",
+  "description": "Generates beat-synced level layouts inside the editor using AI audio analysis for GD 2.208."
+}
