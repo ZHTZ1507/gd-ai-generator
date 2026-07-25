@@ -13,6 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup MSVC C++ Compiler
+        uses: ilammy/msvc-dev-cmd@v1
+
       - name: Setup Geode CLI
         uses: geode-sdk/cli/.github/actions/setup@main
 
