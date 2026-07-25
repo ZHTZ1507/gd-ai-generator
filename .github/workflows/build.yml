@@ -1,0 +1,25 @@
+name: Build Geode Mod
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Windows Mod
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Geode Mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          sdk: nightly
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-layout-generator-mod
+          path: "*.geode"
